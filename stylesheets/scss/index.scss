@@ -1,5 +1,20 @@
 @import 'partials/_colours.scss';
+@import 'partials/_card.scss';
 
-body {
-	background:	red;
+.intro {
+	background: $colour-app-tertiary;
+	border-bottom: 1px solid $colour-app-accent-three;
+	padding: 25px 0;
+	h1 {
+		line-height: 150px;
+		overflow:hidden;
+		margin-left: auto;
+		margin-right: auto;
+		color: $colour-txt-secondary;
+	}
+
+	img {
+		height: 85px;
+		margin: 0 auto;
+	}
 }

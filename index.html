@@ -3,21 +3,46 @@
 
 	<head>
 		<title>Card Stack</title>
-		<link href="stylesheets/css/vendor/kube.css" media="screen" rel="stylesheet" type="text/css">
+		<link href="stylesheets/min/reset.min.css" media="screen" rel="stylesheet" type="text/css">
+		<link href="stylesheets/min/kube.min.css" media="screen" rel="stylesheet" type="text/css">
 		<link href="stylesheets/min/main.min.css" media="screen" rel="stylesheet" type="text/css">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+		<script src="js/controllers.js"></script>
 	</head>
 
 	<body>
-		<div class="content">
-			<div class="units-row">
-				<div class="unit-20">P</div>
-				<div class="unit-20">P</div>
-				<div class="unit-20">P</div>
-				<div class="unit-20">P</div>
-				<div class="unit-20">P</div>
+		<div class="units-row banner">
+			<div class="unit-100 content">
+				<p>Card Stack</p>
 			</div>
 		</div>
-		
+
+		<div ng-app="cardApp">
+			<div class="units-row intro">
+				<div class="content unit-centered">
+					<div class="unit-33">
+						<img src="img/click.svg"/>
+						<h3>1. Choose your modules</h3>
+					</div>
+					<div class="unit-33">
+						<img src="img/go.svg"/>
+						<h3>2. Hit the go button</h3>
+					</div>
+					<div class="unit-33">
+						<img src="img/learn.svg"/>
+						<h3>3. Learn!</h3>
+					</div>
+				</div>
+			</div>
+
+			<div class="content narrow">
+				<ul class="blocks-4">
+					<li ng-repeat="phone in phones">
+						<h2>Hi</h2>
+					</li>
+				</ul>
+			</div>
+		</div>
 	</body>
 
 </html>

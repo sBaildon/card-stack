@@ -1,0 +1,9 @@
+.card {
+	background: $colour-app-quadernary;
+	border: 1px solid $colour-app-tertiary;
+	h2 {
+		color: $colour-txt-secondary;
+		display: table-cell;
+		font-size: 1.4em;
+	}
+}

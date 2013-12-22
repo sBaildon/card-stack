@@ -1,0 +1,22 @@
+.content {
+  width: 97%;
+  max-width: 750px;
+  margin: 0 auto; }
+
+.banner {
+  background: #d42b1e;
+  height: 45px;
+  margin-bottom: 0;
+  border-bottom: 1px solid #d1cfcf; }
+  .banner p {
+    color: white;
+    font-size: 1.6em;
+    line-height: 50px; }
+
+html, body {
+  background: #f4f4f4;
+  height: 100%; }
+
+@media only screen and (min-width: 400px) {
+  .content {
+    width: 65%; } }

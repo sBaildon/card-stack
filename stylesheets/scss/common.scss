@@ -1,0 +1,31 @@
+@import "partials/_colours.scss";
+
+.content {
+	width: 97%;
+	max-width: 750px;
+	margin: 0 auto;
+}
+
+.banner {
+	background: $colour-app-primary;
+	height: 45px;
+	margin-bottom: 0;
+	border-bottom: 1px solid $colour-app-accent-three;
+	p {
+		color:	$colour-txt-tertiary;
+		font-size: 1.6em;
+		line-height: 50px;
+	}
+}
+
+html, body {
+	background: $colour-app-secondary;
+	height: 100%;
+}
+
+@media only screen 
+and (min-width : 400px) {
+	.content {
+		width: 65%;
+	}
+}
