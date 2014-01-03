@@ -1,8 +1,25 @@
 'use strict';
 
-var cardApp = angular.module('cardApp', ['ngRoute']);
+var cardControllers = angular.module('cardControllers', []);
 
-cardApp.controller('CardSelectorController', function($scope, $http, $filter) {
+cardControllers.factory('messagePasser', function($rootScope) {
+	var messagePasser = {};
+
+	messagePasser.result = '';
+
+	messagePasser.prepForBroadcast = function(msg) {
+		this.result = msg;
+		this.broadcastItem();
+	};
+	
+	messagePasser.broadcastItem = function() {
+		$rootScope.$broadcast('handleBroadcast');
+	};
+	
+	return messagePasser;
+});
+
+cardControllers.controller('CardSelectorController', function($scope, $http, $filter, messagePasser) {
 
 	$http.get('../php/get_modules.php').
 	success(function(data) {
@@ -34,15 +51,45 @@ cardApp.controller('CardSelectorController', function($scope, $http, $filter) {
 		$scope.selectedCards = $filter('filter')($scope.cards, 'true');
 		$http.post('../php/get_cards.php', $scope.selectedCards).
 		success(function(data) {
-			$scope.test = data;
+			messagePasser.prepForBroadcast(data)
 		}).
 		error(function(data) {
-			$scope.test = "fail";
+			messagePasser.result = "fail";
 		});
 	};
 
 });
 
-cardApp.controller('CardViewerController', function($scope) {
+cardControllers.controller('CardViewerController', function($scope, messagePasser) {
+	$scope.cards2 = messagePasser.result;
+
+	$scope.indexVal = 0;
+	$scope.cardToDisplay = $scope.cards2[$scope.indexVal];
+
+	$scope.$on('handleBroadcast', function() {
+		$scope.cards2 = messagePasser.result;
+		$scope.cardToDisplay = $scope.cards2[$scope.indexVal];
+	});
+
+
+	$scope.flip = function(card) {
+		card.selected = !card.selected;
+	}
+
+	$scope.incrementIndex = function() {
+		$scope.indexVal = $scope.indexVal + 1;
+		if ($scope.indexVal > $scope.cards2.length - 1) {
+			$scope.indexVal = 0;
+		}
+		$scope.cardToDisplay = $scope.cards2[$scope.indexVal];
+	}
+
+	$scope.decrementIndex = function() {
+		$scope.indexVal = $scope.indexVal - 1;
+		if ($scope.indexVal < 0) {
+			$scope.indexVal = $scope.cards2.length -1;
+		}
+		$scope.cardToDisplay = $scope.cards2[$scope.indexVal];
+	}
 
 });

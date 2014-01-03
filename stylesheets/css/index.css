@@ -1,15 +1,15 @@
-.card, .default, .selected {
+/* Red */
+/* Light Grey */
+/* Darker Grey */
+.card {
   border: 1px solid;
+  text-align: center;
   -webkit-user-select: none;
-  /* Chrome/Safari */
   -moz-user-select: none;
-  /* Firefox */
   -ms-user-select: none;
-  /* IE10+ */
-  cursor: default; }
-  .card h2, .default h2, .selected h2 {
-    display: table-cell;
-    font-size: 1.4em; }
+  cursor: default;
+  -webkit-transition: 0.8s;
+  -webkit-transform-style: preserve-3d; }
 
 .default {
   border-color: #d1cfcf;
@@ -18,8 +18,17 @@
 .selected {
   border-color: #a21c11;
   background: #d42b1e; }
-  .selected h2 {
+  .selected .title {
     color: white; }
+
+.flip {
+  -webkit-transform: rotateX(180deg); }
+
+.front, .back {
+  -webkit-backface-visibility: hidden; }
+
+.back {
+  -webkit-transform: rotateX(180deg); }
 
 .intro {
   background: #e8e8e8;

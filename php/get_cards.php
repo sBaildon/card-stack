@@ -26,4 +26,6 @@ while($row = $result->fetch_assoc()) {
 $json_return = json_encode($json);
 
 print_r($json_return);
+
+mysqli_close($db);
 ?>

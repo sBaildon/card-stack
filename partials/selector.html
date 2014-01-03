@@ -1,0 +1,27 @@
+<div class="units-row intro">
+	<div class="content unit-centered">
+		<div class="unit-33">
+			<img src="img/click.svg"/>
+			<h3>1. Choose your modules</h3>
+		</div>
+		<div class="unit-33">
+			<img src="img/go.svg"/>
+			<h3>2. Hit the go button</h3>
+		</div>
+		<div class="unit-33">
+			<img src="img/learn.svg"/>
+			<h3>3. Learn!</h3>
+		</div>
+	</div>
+</div>
+
+
+<div class="content" ng-controller="CardSelectorController">
+	<ul class="blocks-4" id ="cards">
+		<li class="card default" ng-repeat="card in cards" ng-click="toggle(card)" ng-class="{'selected':card.selected}">
+			<h2 class="title">{{card.code}}</h2>
+		</li>
+	</ul>
+
+	<a href="#/viewer/"><button class="btn" ng-click="proceed()" ng-model="button" ng-disabled="!canContinue">Go</button></a>
+</div>

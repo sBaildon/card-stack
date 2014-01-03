@@ -1,0 +1,15 @@
+<div class="content units-row">
+
+	<div class="unit-20" ng-click="decrementIndex()">
+		<img src="../img/left.svg" />
+	</div>
+
+	<div class="card default unit-60" ng-click="flip(cardToDisplay)" ng-class="{'flip':cardToDisplay.selected}">
+		<h2 class="front">{{cardToDisplay.question}}</h2>
+		<h2 class="back">{{cardToDisplay.answer}}</h2>
+	</div>
+
+	<div class="unit-20" ng-click="incrementIndex()">
+		<img src="../img/right.svg" />
+	</div>
+</div>

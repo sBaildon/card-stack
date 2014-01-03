@@ -1,26 +1,38 @@
 .card {
 	border: 1px solid;
-	h2 {
-		display: table-cell;
-		font-size: 1.4em;
-	}
-	-webkit-user-select: none; /* Chrome/Safari */        
-	-moz-user-select: none; /* Firefox */
-	-ms-user-select: none; /* IE10+ */
+
+	text-align: center;
+
+	-webkit-user-select: none;       
+	-moz-user-select: none;
+	-ms-user-select: none;
 	cursor:	default;
+	
+	-webkit-transition: 0.8s;
+	-webkit-transform-style: preserve-3d;	
 }
 
 .default {
-	@extend .card;
 	border-color: $colour-app-accent-three;
 	background: $colour-app-quadernary;
 }
 
 .selected {
-	@extend .card;
 	border-color: $colour-app-accent-two;
 	background: $colour-app-primary;
-	h2 {
+	.title {
 		color: $colour-txt-tertiary;
 	}
+}
+
+.flip {
+	-webkit-transform: rotateX(180deg);
+}
+	
+.front, .back {
+	-webkit-backface-visibility: hidden;
+}
+
+.back {
+	-webkit-transform: rotateX(180deg);
 }
