@@ -2,3 +2,5 @@ node_modules/*
 package.json
 Gruntfile.js
 .sass-cache/*
+.DS_Store
+**/.DS_Store

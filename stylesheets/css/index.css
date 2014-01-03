@@ -1,10 +1,25 @@
-.card {
-  background: white;
-  border: 1px solid #e8e8e8; }
-  .card h2 {
-    color: #2f2f2f;
+.card, .default, .selected {
+  border: 1px solid;
+  -webkit-user-select: none;
+  /* Chrome/Safari */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE10+ */
+  cursor: default; }
+  .card h2, .default h2, .selected h2 {
     display: table-cell;
     font-size: 1.4em; }
+
+.default {
+  border-color: #d1cfcf;
+  background: white; }
+
+.selected {
+  border-color: #a21c11;
+  background: #d42b1e; }
+  .selected h2 {
+    color: white; }
 
 .intro {
   background: #e8e8e8;

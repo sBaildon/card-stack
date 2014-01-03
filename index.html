@@ -4,9 +4,9 @@
 	<head>
 		<title>Card Stack</title>
 		<link href="stylesheets/min/reset.min.css" media="screen" rel="stylesheet" type="text/css">
-		<link href="stylesheets/min/kube.min.css" media="screen" rel="stylesheet" type="text/css">
+		<link href="stylesheets/css/vendor/kube.css" media="screen" rel="stylesheet" type="text/css">
 		<link href="stylesheets/min/main.min.css" media="screen" rel="stylesheet" type="text/css">
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+		<script src="lib/angular.min.js"></script>
 		<script src="js/controllers.js"></script>
 	</head>
 
@@ -35,12 +35,17 @@
 				</div>
 			</div>
 
-			<div class="content narrow">
-				<ul class="blocks-4">
-					<li ng-repeat="phone in phones">
-						<h2>Hi</h2>
+
+			<div class="content" ng-controller="CardSelectorController">
+				<ul class="blocks-4" id ="cards">
+					<li class="card default" ng-repeat="card in cards" ng-click="toggle(card)" ng-class="{'selected':card.selected}">
+						<h2>{{card.code}}</h2>
 					</li>
 				</ul>
+
+				<button class="btn" ng-click="proceed()" ng-model="button" ng-disabled="!canContinue">Go</button>
+
+				{{test}}
 			</div>
 		</div>
 	</body>

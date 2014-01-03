@@ -1,9 +1,26 @@
 .card {
-	background: $colour-app-quadernary;
-	border: 1px solid $colour-app-tertiary;
+	border: 1px solid;
 	h2 {
-		color: $colour-txt-secondary;
 		display: table-cell;
 		font-size: 1.4em;
+	}
+	-webkit-user-select: none; /* Chrome/Safari */        
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+ */
+	cursor:	default;
+}
+
+.default {
+	@extend .card;
+	border-color: $colour-app-accent-three;
+	background: $colour-app-quadernary;
+}
+
+.selected {
+	@extend .card;
+	border-color: $colour-app-accent-two;
+	background: $colour-app-primary;
+	h2 {
+		color: $colour-txt-tertiary;
 	}
 }
