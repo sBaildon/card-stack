@@ -1,6 +1,6 @@
 'use strict';
 
-var cardApp = angular.module('cardApp', []);
+var cardApp = angular.module('cardApp', ['ngRoute']);
 
 cardApp.controller('CardSelectorController', function($scope, $http, $filter) {
 
@@ -40,5 +40,9 @@ cardApp.controller('CardSelectorController', function($scope, $http, $filter) {
 			$scope.test = "fail";
 		});
 	};
+
+});
+
+cardApp.controller('CardViewerController', function($scope) {
 
 });

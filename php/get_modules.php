@@ -18,7 +18,7 @@ while($row = $result->fetch_assoc()) {
 
 $json_result = json_encode($json);
 
-echo $json_result, PHP_EOL;
+print_r($json_result);
 
 mysqli_close($db);
 ?>
